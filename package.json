@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "serve .",
     "build": "node build.js",
-    "start": "serve .",
-    "preview": "serve ."
+    "start": "serve public",
+    "preview": "serve public"
   },
   "keywords": [
     "defi",
