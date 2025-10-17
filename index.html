@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChewieAI — AI copilot that makes DeFi simple</title>
+    <meta name="description"
+        content="Onboard and activate more users with ChewieAI — the AI copilot built for DeFi protocols. Cut support and simplify complex flows.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chewieai.com/">
+    <meta property="og:title" content="ChewieAI — AI copilot that makes DeFi simple">
+    <meta property="og:description"
+        content="Onboard and activate more users with ChewieAI — the AI copilot built for DeFi protocols. Cut support and simplify complex flows.">
+    <meta property="og:image" content="https://chewieai.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="chewieAI">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://chewieai.com/">
+    <meta name="twitter:title" content="ChewieAI — AI copilot that makes DeFi simple">
+    <meta name="twitter:description"
+        content="Onboard and activate more users with ChewieAI — the AI copilot built for DeFi protocols. Cut support and simplify complex flows.">
+    <meta name="twitter:image" content="https://chewieai.com/og-image.png">
+    <meta name="twitter:creator" content="@chewieAI">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#052346">
+    <meta name="keywords" content="DeFi, AI, onboarding, crypto, blockchain, web3, protocol, support, automation">
+    <meta name="author" content="ChewieAI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chewieai.com/">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTJBL2G33T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KTJBL2G33T');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* ============================================
+               PRIMITIVE COLORS (Base Palette - Figma Design)
+               ============================================ */
+            --blue-900: #052346;
+            --blue-800: #0D2853;
+            --blue-700: #163C7A;
+            --blue-600: #225395;
+            --blue-500: #3172B6;
+            --blue-200: #BAD3E5;
+            --blue-50: #EBEFF2;
+
+            --yellow-600: #E8A640;
+            --yellow-500: #F5C751;
+            --yellow-400: #F8D555;
+
+            --green-success: #2DBE78;
+            --red-error: #E5484D;
+            --orange-warning: #FF914D;
+
+            --neutral-900: #052346;
+            --neutral-800: #0D2853;
+            --neutral-200: #BAD3E5;
+            --neutral-50: #EBEFF2;
+            --neutral-white: #FFFFFF;
+
+            /* ============================================
+               SEMANTIC COLORS
+               ============================================ */
+            --color-primary: var(--blue-600);
+            --color-primary-dark: var(--blue-700);
+            --color-primary-light: var(--blue-500);
+
+            --color-secondary: var(--yellow-500);
+            --color-secondary-dark: var(--yellow-600);
+            --color-secondary-light: var(--yellow-400);
+
+            --color-accent: var(--green-success);
+            --color-accent-dark: var(--blue-800);
+            --color-accent-light: var(--green-success);
+
+            --color-background: var(--blue-900);
+            --color-surface: var(--blue-800);
+            --color-surface-elevated: rgba(255, 255, 255, 0.03);
+            --color-surface-hover: rgba(255, 255, 255, 0.08);
+
+            --color-text-primary: var(--neutral-white);
+            --color-text-secondary: var(--neutral-200);
+            --color-text-inverse: var(--blue-900);
+
+            --color-border-subtle: rgba(255, 255, 255, 0.1);
+            --color-border-primary: rgba(34, 83, 149, 0.3);
+            --color-border-secondary: rgba(245, 199, 81, 0.3);
+            --color-border-accent: rgba(45, 190, 120, 0.3);
+
+            --color-success: var(--green-success);
+            --color-error: var(--red-error);
+            --color-warning: var(--orange-warning);
+            --color-hover: rgba(255, 255, 255, 0.08);
+
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(34, 83, 149, 0.3);
+            --shadow-lg: 0 8px 24px rgba(34, 83, 149, 0.4);
+            --shadow-xl: 0 12px 32px rgba(34, 83, 149, 0.5);
+            --shadow-2xl: 0 40px 80px rgba(0, 0, 0, 0.4);
+            --shadow-secondary: 0 8px 24px rgba(245, 199, 81, 0.4);
+            --shadow-secondary-hover: 0 12px 32px rgba(245, 199, 81, 0.5);
+            --shadow-glow-primary: 0 4px 20px rgba(245, 199, 81, 0.5);
+            --shadow-glow-accent: 0 0 8px rgba(45, 190, 120, 0.6);
+
+            --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            --gradient-text: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+            --gradient-highlight: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            --gradient-hero-orb: radial-gradient(circle, rgba(45, 190, 120, 0.15), transparent);
+
+            --space-container: 32px;
+            --space-section: 120px;
+            --space-card: 40px;
+
+            --radius-sm: 10px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 50%;
+
+            --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-text-inverse);
+            background: #0A1628;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .logo-text,
+        .chat-title {
+            font-family: var(--font-heading);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-container);
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .grid-bg {
+            display: none;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 199, 81, 0.2), transparent);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(232, 166, 64, 0.25), transparent);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(248, 213, 85, 0.15), transparent);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+
+        header {
+            padding: 28px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 2px solid var(--color-border-secondary);
+            box-shadow: var(--shadow-glow-primary);
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-cta {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--color-text-inverse);
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-border-secondary);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary-hover);
+            filter: brightness(1.05);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 62px;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text .highlight {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 21px;
+            color: var(--color-text-secondary);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .benefit-list {
+            list-style: none;
+            margin: 0 0 36px;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            font-size: 16px;
+            color: var(--color-text-primary);
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .benefit-bullet {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            box-shadow: var(--shadow-glow-accent);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-secondary);
+            color: var(--color-text-inverse);
+            padding: 20px 36px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+            border: 1px solid var(--color-border-secondary);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-secondary-hover);
+            filter: brightness(1.05);
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--color-text-primary);
+            padding: 20px 36px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .chat-demo {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: var(--radius-xl);
+            padding: 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary), var(--color-secondary));
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(5, 35, 70, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .chat-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            border: 3px solid var(--color-border-secondary);
+            box-shadow: var(--shadow-glow-primary);
+            overflow: hidden;
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-info {
+            flex: 1;
+        }
+
+        .chat-title {
+            font-weight: 700;
+            color: var(--color-text-inverse);
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .chat-status {
+            font-size: 13px;
+            color: var(--color-success);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-success);
+            border-radius: var(--radius-full);
+            animation: pulse 2s infinite;
+            box-shadow: var(--shadow-glow-accent);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+        }
+
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .chat-message {
+            background: rgba(235, 239, 242, 0.8);
+            padding: 16px 20px;
+            border-radius: 16px 16px 4px 16px;
+            font-size: 15px;
+            color: var(--color-text-inverse);
+            max-width: 85%;
+            align-self: flex-end;
+            line-height: 1.5;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chat-message.bot {
+            background: var(--gradient-primary);
+            color: var(--color-text-primary);
+            border-radius: 16px 16px 16px 4px;
+            align-self: flex-start;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 48px;
+            margin: 80px 0;
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--gradient-highlight);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .cred-strip {
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+            align-items: center;
+            opacity: .8;
+            margin-top: 28px;
+        }
+
+        .cred-badge {
+            height: 24px;
+            width: 120px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+
+        .problem {
+            padding: 120px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(45, 190, 120, 0.15);
+            color: var(--color-accent);
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--color-border-accent);
+        }
+
+        .section-header h2 {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            font-size: 21px;
+            color: var(--color-text-secondary);
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .problem-grid.three-cols {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .problem-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(45, 190, 120, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .solution {
+            padding: 120px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(45, 190, 120, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 44px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--color-text-primary);
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .how-it-works {
+            padding: 120px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .step-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(45, 190, 120, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--color-text-inverse);
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-glow-primary);
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--color-text-primary);
+        }
+
+        .step-duration {
+            font-size: 13px;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .timeline-footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        .timeline-footer p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+        }
+
+        .timeline-footer strong {
+            color: var(--color-text-primary);
+            font-weight: 700;
+        }
+
+        .cta-section {
+            padding: 120px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(13, 40, 83, 0.5) 0%, rgba(22, 60, 122, 0.3) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-box h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -1px;
+        }
+
+        .cta-box p {
+            font-size: 21px;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .cta-box .cta-primary {
+            font-size: 20px;
+            padding: 22px 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background: #0A1628;
+            padding: 48px 0;
+            text-align: center;
+            color: var(--color-text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-size: 15px;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 48px;
+            }
+
+            .chat-demo {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .problem-grid,
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid.three-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid.three-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .section-header h2 {
+                font-size: 40px;
+            }
+
+            .cta-box {
+                padding: 70px 40px;
+            }
+
+            .cta-box h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 160px 0 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-text p {
+                font-size: 18px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .problem,
+            .solution,
+            .how-it-works,
+            .cta-section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 48px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .section-header p {
+                font-size: 18px;
+            }
+
+            .stats-bar {
+                padding: 32px 24px;
+                margin: 48px 0;
+            }
+
+            .problem-card,
+            .feature-card,
+            .step-card {
+                padding: 28px;
+            }
+
+            .problem-card h3,
+            .feature-card h3,
+            .step-card h3 {
+                font-size: 20px;
+            }
+
+            .cta-box {
+                padding: 48px 24px;
+            }
+
+            .cta-box h2 {
+                font-size: 28px;
+            }
+
+            .cta-box p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-pattern">
+        <div class="grid-bg"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="logo.png" alt="ChewieAI Logo" />
+                    </div>
+                    <span class="logo-text">ChewieAI</span>
+                </div>
+                <a href="#waitlist" class="header-cta">Join waitlist</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Turn confused visitors into <span class="highlight">active users</span></h1>
+                    <p>DeFi is too complex. ChewieAI fixes that with AI onboarding copilot — dedicated to DeFi and your
+                        protocol to explain,
+                        guide, and convert users in plain language. Redefining how protocols drive adoption.</p>
+
+
+
+
+
+                    <!-- <ul class="benefit-list">
+                        <li><span class="benefit-bullet"></span><strong>Lift activation:</strong> Fewer bounces on complex flows (PT/YT, staking, leverage).</li>
+                        <li><span class="benefit-bullet"></span><strong>Deflect support:</strong> Resolve repetitive “how do I…?” before they hit Discord.</li>
+                        <li><span class="benefit-bullet"></span><strong>Own the data:</strong> See the exact questions that block deposits.</li>
+                    </ul> -->
+
+                    <div class="cta-group">
+                        <a href="#waitlist" class="cta-primary">Join waitlist</a>
+                        <a href="#features" class="cta-secondary">See Features ↓</a>
+                    </div>
+                    <!-- <p style="font-size: 14px; color: var(--color-text-secondary); text-align: center; margin-top: 20px;">Piloting with lending protocols on Base &amp; Solana</p>
+                    <div class="cred-strip">
+                        <div class="cred-badge">Your logo here</div>
+                        <div class="cred-badge">Your logo here</div>
+                        <div class="cred-badge">Your logo here</div>
+                    </div> -->
+                </div>
+
+                <div class="hero-visual">
+                    <div class="chat-demo" id="demo">
+                        <div class="chat-header">
+                            <div class="chat-avatar">
+                                <img src="logo.png" alt="ChewieAI Assistant" />
+                            </div>
+                            <div class="chat-info">
+                                <div class="chat-title">ChewieAI DeFi buddy</div>
+                                <div class="chat-status">
+                                    <span class="status-dot"></span>
+                                    Instant answers • In-app
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages">
+                            <div class="chat-message">Where does this yield actually come from?</div>
+                            <div class="chat-message bot">
+                                From fees paid by traders and borrowers — your tokens earn a share of that.
+                            </div>
+
+                            <div class="chat-message">So how much could I make?</div>
+                            <div class="chat-message bot">
+                                Around <strong>5–12% yearly</strong> depending on the pool.
+                                Want me to show what that means for your balance?
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- 
+            <div class="stats-bar">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">35–60%</div>
+                        <div class="stat-label">Bounce on complex DeFi flows (first 90s)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,000+</div>
+                        <div class="stat-label">Concurrent user chats handled</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">&lt;60s</div>
+                        <div class="stat-label">Typical time to first meaningful action</div>
+                    </div>
+                </div>
+            </div> -->
+            </div>
+    </section>
+
+
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Problem</span>
+                <h2>DeFi is powerful — but too complex for most users</h2>
+                <p>Protocols lose adoption because users don’t understand how to interact. If only pros and whales can
+                    use your app, growth stalls.</p>
+            </div>
+
+            <div class="problem-grid three-cols">
+                <div class="problem-card">
+                    <div class="problem-icon">🌀</div>
+                    <h3>Confusion kills adoption</h3>
+                    <p>Docs and UI overwhelm new users. When staking or bridging feels unclear, they drop off — often
+                        for good.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">⚡</div>
+                    <h3>Complexity favors competitors</h3>
+                    <p>Users don’t chase best yields — they choose what’s easiest to understand. Simpler protocols
+                        capture your TVL.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">📉</div>
+                    <h3>Support can’t scale adoption</h3>
+                    <p>Your team spends hours explaining basics. Manual onboarding doesn’t scale to thousands of users.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="solution" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Solution</span>
+                <h2>Lower the knowledge barrier. Boost activation.</h2>
+                <p>ChewieAI is a DeFi onboarding system — a smart widget for users and an admin app for teams. It
+                    explains, guides, and scales onboarding automatically.</p>
+            </div>
+
+            <div class="features-grid three-cols">
+                <div class="feature-card">
+                    <span class="feature-icon">💬</span>
+                    <h3>In-dApp AI copilot</h3>
+                    <p>Interactive widget that explains protocol terms and actions in real time — built for your UX, not
+                        Discord threads.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🧭</span>
+                    <h3>Smart onboarding flows</h3>
+                    <p>Guides users step-by-step through deposits, staking, and bridging — clear, fast, and in context.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <h3>Dashboard & insights</h3>
+                    <p>Manage your copilot, update context, and view chat history or friction analytics — all in one
+                        dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>From docs to live AI copilot — in 3 steps</h2>
+                <p>ChewieAI is a dedicated DeFi system — powerful under the hood, effortless to use. It turns protocol
+                    complexity into clear, interactive guidance inside your dApp, with upcoming SDK support for in-chat
+                    actions.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Connect your content</h3>
+                    <p>ChewieAI builds a private knowledge layer aligned with your protocol’s logic and DeFi-specific
+                        context.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Refine in dashboard</h3>
+                    <p>Review and fine-tune answers to match your tone and risk framing — no coding required.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Embed the widget</h3>
+                    <p>Add ChewieAI to your dApp in minutes. Users get on-brand, protocol-aware guidance — instantly and
+                        24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="cta-section" id="waitlist">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Join the waitlist for DeFi-native onboarding tool</h2>
+                <p>ChewieAI helps DeFi protocols turn confused visitors into active users — with an in-dApp copilot and
+                    dashboard for teams.</p>
+
+
+
+                <a href="https://form.typeform.com/to/Ex78OxyL" class="cta-primary">Join waitlist →</a>
+                <p style="margin: 24px 0; font-size: 18px; color: var(--color-accent); font-weight: 600;">
+                    *Waitlist members get early access and better pricing.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ChewieAI. Redefining how users understand and experience DeFi.</p>
+            <a href="https://x.com/chewieAI" target="_blank" rel="noopener noreferrer"
+                style="color: var(--color-accent); text-decoration: none; font-weight: 600; transition: opacity 0.3s ease;">
+                Follow us on X @chewieAI
+            </a>
+            <p style="margin-top: 12px;">
+
+
+                <a href="privacy-policy.html"
+                    style="color: var(--color-text-secondary); text-decoration: none; transition: opacity 0.3s ease;">
+                    Privacy Policy
+                </a>
+                •
+                <a href="#" id="cookieSettingsLink"
+                    style="color: var(--color-text-secondary); text-decoration: none; transition: opacity 0.3s ease;">
+                    Cookie Settings
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent"
+        style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, rgba(13, 40, 83, 0.98) 0%, rgba(22, 60, 122, 0.98) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 24px; box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.1); z-index: 9999;">
+        <div id="cookieBannerContent"
+            style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: #FFFFFF; font-size: 16px; font-weight: 600; margin-bottom: 8px;">🍪 We use cookies</p>
+                <p style="color: #BAD3E5; font-size: 14px; line-height: 1.5; margin: 0;">
+                    We use essential cookies for site functionality and analytics cookies (Google Analytics) to
+                    understand how you use our site.
+                    <a href="privacy-policy.html" style="color: #2DBE78; text-decoration: underline;">Learn more</a>
+                </p>
+            </div>
+            <div id="cookieButtons" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button id="acceptCookies"
+                    style="background: linear-gradient(135deg, #F5C751 0%, #E8B840 100%); color: #052346; border: none; padding: 12px 28px; font-size: 15px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(245, 199, 81, 0.4);">
+                    Accept All
+                </button>
+                <button id="rejectCookies"
+                    style="background: rgba(255, 255, 255, 0.08); color: #E8EEF3; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 28px; font-size: 15px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    Reject Non-Essential
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Cookie Banner Responsive Styles */
+        @media (max-width: 768px) {
+            #cookieConsent {
+                padding: 20px 16px !important;
+            }
+
+            #cookieBannerContent {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 20px !important;
+            }
+
+            #cookieButtons {
+                width: 100%;
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+
+            #acceptCookies,
+            #rejectCookies {
+                width: 100% !important;
+                padding: 14px 20px !important;
+                font-size: 16px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #cookieConsent p:first-child {
+                font-size: 15px !important;
+            }
+
+            #cookieConsent p:last-child {
+                font-size: 13px !important;
+            }
+        }
+    </style>
+
+    <script>
+        // Cookie Consent Management
+        (function () {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const rejectBtn = document.getElementById('rejectCookies');
+            const settingsLink = document.getElementById('cookieSettingsLink');
+
+            // Check if user has already made a choice
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+            }
+
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+            }
+
+            function initGoogleAnalytics() {
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KTJBL2G33T', {
+                    'anonymize_ip': true,
+                    'cookie_flags': 'SameSite=None;Secure'
+                });
+            }
+
+            function showBanner() {
+                cookieConsent.style.display = 'block';
+            }
+
+            function hideBanner() {
+                cookieConsent.style.display = 'none';
+            }
+
+            // Accept all cookies
+            acceptBtn.addEventListener('click', function () {
+                setCookie('cookieConsent', 'accepted', 365);
+                initGoogleAnalytics();
+                hideBanner();
+            });
+
+            // Reject non-essential cookies
+            rejectBtn.addEventListener('click', function () {
+                setCookie('cookieConsent', 'rejected', 365);
+                hideBanner();
+            });
+
+            // Cookie settings link
+            settingsLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Delete existing consent cookie
+                document.cookie = 'cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                showBanner();
+            });
+
+            // Check consent status on page load
+            const consent = getCookie('cookieConsent');
+            if (!consent) {
+                // No consent yet, show banner
+                showBanner();
+            } else if (consent === 'accepted') {
+                // User accepted, initialize analytics
+                initGoogleAnalytics();
+            }
+            // If rejected, do nothing (no analytics)
+
+            // Hover effects for buttons
+            acceptBtn.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 6px 16px rgba(245, 199, 81, 0.6)';
+            });
+            acceptBtn.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 12px rgba(245, 199, 81, 0.4)';
+            });
+
+            rejectBtn.addEventListener('mouseenter', function () {
+                this.style.background = 'rgba(255, 255, 255, 0.12)';
+            });
+            rejectBtn.addEventListener('mouseleave', function () {
+                this.style.background = 'rgba(255, 255, 255, 0.08)';
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

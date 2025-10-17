@@ -1,0 +1,29 @@
+{
+  "name": "chewie-ai-landing",
+  "version": "1.0.0",
+  "description": "ChewieAI - AI Support Agent for DeFi Protocols Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'No build step required for static HTML'",
+    "start": "serve .",
+    "preview": "serve ."
+  },
+  "keywords": [
+    "defi",
+    "ai",
+    "support",
+    "landing-page",
+    "chewie-ai"
+  ],
+  "author": "ChewieAI Team",
+  "license": "MIT",
+  "packageManager": "pnpm@8.0.0",
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

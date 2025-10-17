@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Preview - ChewieAI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #052346;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .preview-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .preview-card h2 {
+            color: #052346;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .platform-icon {
+            font-size: 28px;
+        }
+        
+        /* Facebook Preview */
+        .facebook-preview {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .facebook-preview img {
+            width: 100%;
+            display: block;
+        }
+        
+        .facebook-preview .content {
+            padding: 12px;
+            background: #f2f3f5;
+        }
+        
+        .facebook-preview .domain {
+            color: #606770;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .facebook-preview .title {
+            color: #1c1e21;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .facebook-preview .description {
+            color: #606770;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        /* Twitter Preview */
+        .twitter-preview {
+            border: 1px solid #cfd9de;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .twitter-preview img {
+            width: 100%;
+            display: block;
+        }
+        
+        .twitter-preview .content {
+            padding: 12px;
+        }
+        
+        .twitter-preview .title {
+            color: #0f1419;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+        
+        .twitter-preview .description {
+            color: #536471;
+            font-size: 15px;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+        
+        .twitter-preview .domain {
+            color: #536471;
+            font-size: 14px;
+        }
+        
+        /* LinkedIn Preview */
+        .linkedin-preview {
+            border: 1px solid #d3d3d3;
+            border-radius: 2px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .linkedin-preview img {
+            width: 100%;
+            display: block;
+        }
+        
+        .linkedin-preview .content {
+            padding: 12px;
+        }
+        
+        .linkedin-preview .title {
+            color: rgba(0,0,0,0.9);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        
+        .linkedin-preview .domain {
+            color: rgba(0,0,0,0.6);
+            font-size: 12px;
+        }
+        
+        /* Favicon Preview */
+        .favicon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .favicon-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .favicon-item img {
+            display: block;
+            margin: 0 auto 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .favicon-item .label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .favicon-item .size {
+            font-size: 11px;
+            color: #999;
+        }
+        
+        .browser-tab {
+            background: #e8eaed;
+            border-radius: 8px 8px 0 0;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .browser-tab img {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .browser-tab .title {
+            font-size: 13px;
+            color: #202124;
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 16px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+        
+        .info-box h3 {
+            color: #052346;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .info-box p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-top: 12px;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .checklist li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Social Media Preview - ChewieAI</h1>
+        
+        <div class="info-box success-box">
+            <h3>✅ Setup Complete!</h3>
+            <p>Your landing page is now optimized for social media sharing. Here's how your links will appear when shared:</p>
+        </div>
+        
+        <div class="preview-grid">
+            <!-- Facebook Preview -->
+            <div class="preview-card">
+                <h2><span class="platform-icon">📘</span> Facebook / LinkedIn</h2>
+                <div class="facebook-preview">
+                    <img src="og-image.png" alt="OG Image">
+                    <div class="content">
+                        <div class="domain">CHEWIEAI.COM</div>
+                        <div class="title">ChewieAI — AI copilot that makes DeFi simple</div>
+                        <div class="description">Onboard and activate more users with ChewieAI — the AI copilot built for DeFi protocols. Cut support and simplify complex flows.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Twitter Preview -->
+            <div class="preview-card">
+                <h2><span class="platform-icon">🐦</span> Twitter / X</h2>
+                <div class="twitter-preview">
+                    <img src="og-image.png" alt="Twitter Card">
+                    <div class="content">
+                        <div class="title">ChewieAI — AI copilot that makes DeFi simple</div>
+                        <div class="description">Onboard and activate more users with ChewieAI — the AI copilot built for DeFi protocols. Cut support and simplify complex flows.</div>
+                        <div class="domain">chewieai.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Favicon Preview -->
+        <div class="preview-card">
+            <h2><span class="platform-icon">🔖</span> Browser Favicons</h2>
+            
+            <div class="browser-tab">
+                <img src="favicons/favicon-16x16.png" alt="Favicon">
+                <span class="title">ChewieAI — AI copilot that makes DeFi simple</span>
+            </div>
+            
+            <div class="favicon-grid">
+                <div class="favicon-item">
+                    <img src="favicons/favicon-16x16.png" alt="16x16" style="width: 32px; height: 32px; image-rendering: pixelated;">
+                    <div class="label">Browser Tab</div>
+                    <div class="size">16×16</div>
+                </div>
+                <div class="favicon-item">
+                    <img src="favicons/favicon-32x32.png" alt="32x32" style="width: 64px; height: 64px;">
+                    <div class="label">Browser Tab (HD)</div>
+                    <div class="size">32×32</div>
+                </div>
+                <div class="favicon-item">
+                    <img src="favicons/apple-touch-icon.png" alt="180x180" style="width: 90px; height: 90px;">
+                    <div class="label">iOS Home Screen</div>
+                    <div class="size">180×180</div>
+                </div>
+                <div class="favicon-item">
+                    <img src="favicons/android-chrome-192x192.png" alt="192x192" style="width: 96px; height: 96px;">
+                    <div class="label">Android Icon</div>
+                    <div class="size">192×192</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- WhatsApp/Slack Preview -->
+        <div class="preview-card">
+            <h2><span class="platform-icon">💬</span> WhatsApp / Slack / Discord</h2>
+            <div class="linkedin-preview">
+                <img src="og-image.png" alt="OG Image">
+                <div class="content">
+                    <div class="title">ChewieAI — AI copilot that makes DeFi simple</div>
+                    <div class="domain">chewieai.com</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Box -->
+        <div class="info-box">
+            <h3>📋 What's Included</h3>
+            <ul class="checklist">
+                <li>Professional favicon for all browsers and devices</li>
+                <li>Optimized 1200×630 social sharing image</li>
+                <li>Open Graph tags for Facebook, LinkedIn, WhatsApp</li>
+                <li>Twitter Card tags for beautiful tweet previews</li>
+                <li>iOS and Android home screen icons</li>
+                <li>PWA manifest for installable web app</li>
+                <li>SEO meta tags for better search rankings</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h3>🚀 Next Steps</h3>
+            <ul class="checklist">
+                <li>Update domain URLs in index.html (replace chewieai.com)</li>
+                <li>Update Twitter handle (line 32 in index.html)</li>
+                <li>Add your waitlist/signup link (line 543)</li>
+                <li>Deploy all files to your web server</li>
+                <li>Test with Facebook Debugger and Twitter Card Validator</li>
+            </ul>
+        </div>
+        
+        <div class="info-box success-box">
+            <h3>✨ Testing Tools</h3>
+            <p><strong>Facebook/LinkedIn:</strong> <a href="https://developers.facebook.com/tools/debug/" target="_blank">Facebook Sharing Debugger</a></p>
+            <p><strong>Twitter:</strong> <a href="https://cards-dev.twitter.com/validator" target="_blank">Twitter Card Validator</a></p>
+            <p><strong>General:</strong> <a href="https://www.opengraph.xyz/" target="_blank">OpenGraph.xyz</a> or <a href="https://metatags.io/" target="_blank">MetaTags.io</a></p>
+        </div>
+    </div>
+</body>
+</html>
