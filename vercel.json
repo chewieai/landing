@@ -1,4 +1,5 @@
 {
+  "pnpm": "8.x",
   "outputDirectory": "public",
   "headers": [
     {
