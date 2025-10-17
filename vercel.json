@@ -1,5 +1,4 @@
 {
-  "pnpm": "8.x",
   "installCommand": "pnpm install",
   "outputDirectory": "public",
   "headers": [
@@ -24,5 +23,8 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "ENABLE_EXPERIMENTAL_COREPACK": "1"
+  }
 }
