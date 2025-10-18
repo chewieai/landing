@@ -1,7 +1,7 @@
 {
-  "name": "ChewieAI — AI copilot that makes DeFi simple",
+  "name": "ChewieAI — copilot that makes DeFi simple",
   "short_name": "ChewieAI",
-  "description": "Onboard and activate more users with ChewieAI — the AI copilot built for DeFi protocols. Cut support and simplify complex flows.",
+  "description": "Onboard and activate more users with ChewieAI — the copilot built for DeFi protocols. Cut support and simplify complex flows.",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
